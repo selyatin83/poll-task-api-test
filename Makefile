@@ -1,13 +1,7 @@
 ARGS=$(filter-out $@, $(MAKECMDGOALS))
 
 init-local:
-	cp -n ./environments/.env.local ./.env;
-
-init-prod:
-	cp -n ./environments/.env.prod ./.env;
-
-init-demo:
-	cp -n ./environments/.env.demo ./.env;
+	cp -n ./envs/.env.local ./.env;
 
 up:
 	docker-compose up -d
