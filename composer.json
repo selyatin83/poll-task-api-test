@@ -1,0 +1,16 @@
+{
+    "name": "mselyatin/question",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Mselyatin\\Question\\": "app/src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mikhail Selyatin",
+            "email": "selyatin83@mail.ru"
+        }
+    ],
+    "require": {}
+}
