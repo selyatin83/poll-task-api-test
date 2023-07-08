@@ -1,0 +1,132 @@
+openapi: "3.0.0"
+info:
+  title: "Poll task API"
+  description: "XIAG AG Test task"
+  version: "1.0.0"
+
+servers:
+  - url: http://127.0.0.1:8010/
+    description: local
+
+paths:
+  /question:
+    post:
+      tags:
+        - "Question"
+      summary: Creating a new question
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              example:
+                {
+                  "question": "Question description",
+                  "answers": [
+                    "Answer 1",
+                    "Answer 2",
+                    "Answer 3"
+                  ]
+                }
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                example:
+                  {
+                    "id": 2
+                  }
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                example:
+                  {
+                    "code": 6,
+                    "message": "Validation error",
+                    "extra": {
+                      "answers": "answers must not be blank"
+                    }
+                  }
+  /question/vote:
+    post:
+      tags:
+        - "Question"
+      summary: To vote
+      description: Make a vote for a question.
+        </br> The user can vote for a question only one time from a single IP address.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              example:
+                {
+                  "question_id" : 2,
+                  "user_name" : "Миша",
+                  "answer" : "Ответ 2"
+                }
+      responses:
+        '200':
+          description: Created
+          content:
+            application/json:
+              schema:
+                example: []
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                example:
+                  {
+                    "code": 6,
+                    "message": "You already voted",
+                    "extra": []
+                  }
+  /question/votes:
+    get:
+      tags:
+        - "Question"
+      summary: Retrieve the votes of a question by using the question ID
+      description: Order by created_at ASC.
+        </br> limit = 10, page = 1 by default
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              example:
+                {
+                  "id": 1,
+                  "page": 1,
+                  "limit": 5
+                }
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                example:
+                  [
+                    {
+                      "user_name": "Misha",
+                      "answer": "Answer 2",
+                      "created_at": "2023-07-08 11:29:24.582602"
+                    }
+                  ]
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                example:
+                  {
+                    "code": 6,
+                    "message": "The question doesn`t exist",
+                    "extra": []
+                  }

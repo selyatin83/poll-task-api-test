@@ -32,6 +32,14 @@ services:
             - "8010:80"
         networks:
             - xiag-test
+    swagger:
+        container_name: xiag-swagger
+        image: swaggerapi/swagger-ui
+        environment:
+            API_URL: http://127.0.0.1:8010/docs.api.yaml
+        networks:
+            - xiag-test
+
 networks:
     xiag-test:
         driver: bridge
