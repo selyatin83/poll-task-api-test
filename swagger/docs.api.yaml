@@ -87,24 +87,32 @@ paths:
                     "message": "You already voted",
                     "extra": []
                   }
-  /question/votes:
     get:
       tags:
         - "Question"
       summary: Retrieve the votes of a question by using the question ID
       description: Order by created_at ASC.
         </br> limit = 10, page = 1 by default
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              example:
-                {
-                  "id": 1,
-                  "page": 1,
-                  "limit": 5
-                }
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: integer
+          example: 1
+          description: The question ID
+        - in: query
+          name: page
+          required: false
+          schema:
+            type: integer
+          example: 1
+        - in: query
+          name: limit
+          required: false
+          schema:
+            type: integer
+          example: 10
       responses:
         '200':
           description: Success

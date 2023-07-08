@@ -79,14 +79,14 @@ class QuestionController extends BaseController
      */
     public function votes(): JsonResponse
     {
-        $data = json_decode($this->request->getContent());
+        $data = $this->request->query->all();
 
         $pager = Pager::create(
-            $data->page ?? null,
-            $data->limit ?? null
+            $data['page'] ?? null,
+            $data['limit'] ?? null
         );
 
-        $id = $data->id ?? null;
+        $id = $data['id'] ?? null;
         if (null === $id) {
             throw new ClientErrorException(
                 ErrorFactory::VALIDATION_ERROR,

@@ -90,7 +90,6 @@ class Routing
         } catch (ResourceNotFoundException) {
             return ErrorFactory::get(ErrorFactory::PAGE_NOT_FOUND_ERROR);
         } catch (Exception $e) {
-            var_dump($e->getMessage());die;
             return ErrorFactory::get(ErrorFactory::SYSTEM_ERROR);
         }
     }

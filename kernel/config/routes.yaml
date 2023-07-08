@@ -11,6 +11,6 @@ vote:
   methods: POST
   controller: Mselyatin\Question\controllers\QuestionController::vote
 votes:
-  path: /question/votes
+  path: /question/vote
   methods: GET
   controller: Mselyatin\Question\controllers\QuestionController::votes
