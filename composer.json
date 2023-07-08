@@ -3,7 +3,7 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "Mselyatin\\Question\\": "app/src/"
+            "Mselyatin\\Question\\": "kernel/src/"
         }
     },
     "authors": [
@@ -12,5 +12,18 @@
             "email": "selyatin83@mail.ru"
         }
     ],
-    "require": {}
+    "require": {
+        "php": "^8.2",
+        "symfony/http-foundation": "^6.3",
+        "symfony/routing": "^6.3",
+        "lulco/phoenix": "^2.4",
+        "robmorgan/phinx": "^0.13.4",
+        "symfony/yaml": "^6.3",
+        "vlucas/phpdotenv": "^5.5",
+        "php-di/php-di": "^7.0",
+        "illuminate/database": "^10.13",
+        "symfony/serializer": "^6.3",
+        "symfony/property-access": "^6.3",
+        "respect/validation": "^2.2"
+    }
 }

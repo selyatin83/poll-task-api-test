@@ -1,0 +1,16 @@
+main:
+  path: /
+  methods: GET
+  controller: Mselyatin\Question\controllers\MainController::main
+question:
+  path: /question
+  methods: POST
+  controller: Mselyatin\Question\controllers\QuestionController::create
+vote:
+  path: /question/vote
+  methods: POST
+  controller: Mselyatin\Question\controllers\QuestionController::vote
+votes:
+  path: /question/votes
+  methods: GET
+  controller: Mselyatin\Question\controllers\QuestionController::votes
