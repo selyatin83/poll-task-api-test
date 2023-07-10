@@ -34,7 +34,7 @@
 1. CMake: make run-api-tests
 2. Without Cmake: docker-compose run --rm --no-deps fpm php vendor/bin/codecept run api
 ```
-You need to run test before full clear database:
+You need to run the tests after full clear database:
 ```
 1. Drop tables
 2. Run migrations
