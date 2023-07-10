@@ -14,10 +14,15 @@
 1. Cmake: make up
 2. Without Cmake: docker-compose up --build -d
 ```
-4. To run the migrations, use the following command:
+4. Run composer install, use the following command:
+```
+1. Cmake: make composer-install
+2. Without Cmake: docker-compose run --rm --no-deps fpm composer install
+```
+5. To run the migrations, use the following command:
 ```
 1. Cmake: make migration-up
 2. Without Cmake: docker-compose run --rm --no-deps fpm ./vendor/bin/phinx migrate
 ```
-5. Ready! API is available at http://127.0.0.1:8010
-6. API Documentation: Swagger is available at http://127.0.0.1:8010/swagger/
+6. Ready! API is available at http://127.0.0.1:8010
+7. API Documentation: Swagger is available at http://127.0.0.1:8010/swagger/
