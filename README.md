@@ -26,3 +26,17 @@
 ```
 6. Ready! API is available at http://127.0.0.1:8010
 7. API Documentation: Swagger is available at http://127.0.0.1:8010/swagger/
+
+## Tests
+
+1. To start API test run following the command:
+```
+1. CMake: make run-api-tests
+2. Without Cmake: docker-compose run --rm --no-deps fpm php vendor/bin/codecept run api
+```
+You need to run test before full clear database:
+```
+1. Drop tables
+2. Run migrations
+3. Run tests
+```
