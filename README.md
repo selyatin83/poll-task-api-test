@@ -1,1 +1,23 @@
 # XIAG Poll task API
+
+## Install
+
+1. Install "cmake" to run the commands. If you don`t want to do it, then see the commands in /Makefile. 
+</br> <a href='https://cmake.org/'>About Cmake</a> 
+2. Init environments, use the following command:
+```
+1. Cmake: make init-local
+2. Without Cmake: cp -n ./envs/.env.local ./.env;
+```
+3. To start containers, use the following command:
+```
+1. Cmake: make up
+2. Without Cmake: docker-compose up --build -d
+```
+4. To run the migrations, use the following command:
+```
+1. Cmake: make migration-up
+2. Without Cmake: docker-compose run --rm --no-deps fpm ./vendor/bin/phinx migrate
+```
+5. Ready! API is available at http://127.0.0.1:8010
+6. API Documentation: Swagger is available at http://127.0.0.1:8010/swagger/

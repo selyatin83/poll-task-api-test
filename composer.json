@@ -25,5 +25,11 @@
         "symfony/serializer": "^6.3",
         "symfony/property-access": "^6.3",
         "respect/validation": "^2.2"
+    },
+    "require-dev": {
+        "codeception/codeception": "^5.0",
+        "codeception/module-phpbrowser": "*",
+        "codeception/module-asserts": "*",
+        "codeception/module-rest": "*"
     }
 }

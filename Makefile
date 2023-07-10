@@ -9,6 +9,12 @@ up:
 down:
 	docker-compose down
 
+shell-fpm:
+	docker exec -it php-fpm bash
+
+run-api-tests:
+	docker-compose run --rm --no-deps fpm php vendor/bin/codecept run api
+
 composer-install:
 	docker-compose run --rm --no-deps fpm composer install
 
